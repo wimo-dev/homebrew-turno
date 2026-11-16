@@ -1,11 +1,11 @@
 # homebrew-turno
 
-Homebrew tap for [turno](https://github.com/william-monroy/turno): one MCP gateway and
+Homebrew tap for [turno](https://github.com/wimo-dev/turno): one MCP gateway and
 per-folder accounts for Claude Code, Codex, Copilot CLI and Cursor CLI.
 
 ```sh
-brew tap william-monroy/turno
-brew trust william-monroy/turno   # Homebrew 7 asks before loading third-party taps
+brew tap wimo-dev/turno
+brew trust wimo-dev/turno   # Homebrew 7 asks before loading third-party taps
 brew install turno
 ```
 
