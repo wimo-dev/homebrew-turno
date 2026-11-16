@@ -19,8 +19,7 @@ class Turno < Formula
 
   def caveats
     <<~EOS
-      Upgrade turno with brew, not with `turno upgrade`:
-        brew upgrade turno
+      Upgrade with `brew upgrade turno` (`turno upgrade` runs it for you).
       Start with:
         turno doctor
     EOS
