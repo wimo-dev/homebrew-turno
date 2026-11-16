@@ -4,7 +4,9 @@ Homebrew tap for [turno](https://github.com/william-monroy/turno): one MCP gatew
 per-folder accounts for Claude Code, Codex, Copilot CLI and Cursor CLI.
 
 ```sh
-brew install william-monroy/turno/turno
+brew tap william-monroy/turno
+brew trust william-monroy/turno   # Homebrew 7 asks before loading third-party taps
+brew install turno
 ```
 
 The formula installs the `turno-cli` package from npm and needs Node, which Homebrew installs
