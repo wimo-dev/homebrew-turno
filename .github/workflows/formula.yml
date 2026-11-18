@@ -1,0 +1,36 @@
+name: formula
+
+# Audit the formula, build it from source and run its test, on macOS and Linux. Read-only
+# token: the job never pushes.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions: {}
+
+concurrency:
+  group: formula-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: audit, install and test (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: read # setup-homebrew checks out this tap
+    env:
+      HOMEBREW_NO_AUTO_UPDATE: "1"
+    steps:
+      - id: brew
+        uses: Homebrew/actions/setup-homebrew@ceec4e8419bb3c97ce96e9dda7738499ed5f869d # main 2026-11-13
+      - name: Trust the tap (Homebrew 7 asks before loading third-party taps)
+        run: brew trust wimo-dev/turno
+      - run: brew audit --strict --online wimo-dev/turno/turno
+      - run: brew install --build-from-source --verbose wimo-dev/turno/turno
+      - run: brew test --verbose wimo-dev/turno/turno
+      - run: brew linkage --test wimo-dev/turno/turno
