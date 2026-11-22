@@ -1,8 +1,8 @@
 class Turno < Formula
   desc "One MCP gateway and per-folder accounts for coding agents"
   homepage "https://turno.wimo.dev"
-  url "https://registry.npmjs.org/turno-cli/-/turno-cli-0.5.2.tgz"
-  sha256 "00fd0a1b6f9ce2066c2ed8ebca83e2bfd6b287ef1094cb6355cb61390dd104a6"
+  url "https://registry.npmjs.org/turno-cli/-/turno-cli-0.5.3.tgz"
+  sha256 "4a797c762b3b5ddbe5dfda63fde249ec4813908244c1d93951611cb6d8b9e5a0"
   license "Apache-2.0"
 
   livecheck do
